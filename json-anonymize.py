@@ -33,6 +33,8 @@ class Anonymizer:
     def anon( self, o ):
         if o.__class__ == str:
             return self.anon_string(o)
+        if o.__class__ == unicode:
+            return self.anon_string(o)
         if o.__class__ == list:
             return [self.anon(v) for v in o]
         if o.__class__ == dict:
